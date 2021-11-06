@@ -1,0 +1,26 @@
+ stages:
+  - build
+  - restart
+build web server:
+  stage: build
+  script: 
+    - docker-compose build
+    - docker-compose down
+    - docker-compose up -d
+  tags:
+    - 16X-1CDOCKER01
+  only:
+    - master
+  when: manual    
+manyal restart web server:
+  stage: restart
+  script: 
+    - docker-compose down
+    - docker-compose up -d
+  tags:
+    - 16X-1CDOCKER01
+  only:
+    - master
+  when: manual    
+    
+

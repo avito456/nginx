@@ -1,0 +1,18 @@
+version: '2.0'
+
+services:
+  nginx:
+    restart: always
+    build: .
+    #image: nginx:latest
+    ports:
+      - 10.10.235.29:80:80
+      #- 80:80
+      #- 443:443
+    volumes:
+      #  - ./conf.d:/etc/nginx/conf.d
+      - ./log:/var/log/nginx
+      - ./www:/var/www
+      - /opt/1c-mobile-distr:/var/1c-mobile-distr
+      - /etc/letsencrypt:/etc/letsencrypt
+

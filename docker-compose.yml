@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  nginx:
+    restart: always
+    build: .
+    ports:
+      - 10.10.235.29:80:80
+      #- 80:80
+      #- 443:443
+    volumes:
+      - /home/1c/nginx/log-1c-mobile-distr:/var/log/nginx
+      - ./www:/var/www
+      - /opt/1c-mobile-distr:/var/1c-mobile-distr
+      - /etc/letsencrypt:/etc/letsencrypt
+
